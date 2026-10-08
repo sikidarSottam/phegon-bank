@@ -40,8 +40,8 @@ public class UserController {
     }
 
     @PutMapping("/profile-picture")
-    public ResponseEntity<Response<?>> uploadProfilePicture(@RequestParam("file") MultipartFile file) {
-        return ResponseEntity.ok(userService.uploadProfilePicture(file));
+    public ResponseEntity<Response<?>> uploadProfilePictureS3(@RequestParam("file") MultipartFile file) {
+        return ResponseEntity.ok(userService.uploadProfilePictureToS3(file));
     }
 
 
