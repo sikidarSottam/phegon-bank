@@ -42,14 +42,15 @@ public class UserServiceImpl implements UserService {
     private final NotificationService notificationService;
     private final PasswordEncoder passwordEncoder;
     private final ModelMapper modelMapper;
+
     private final S3Service s3Service;
 
 
     //this wil save images to the backend root folder
-    private final String uploadDir = "uploads/profile-pictures/";
+//    private final String uploadDir = "uploads/profile-pictures/";
 
     //this wil save images to the frontend public folder for easy access in the frontend
-//    private final String uploadDir = "/Users/mac/phegonDev/phegon-bank-react/public/profile-picture/";
+    private final String uploadDir = "/Users/mac/phegonDev/phegon-bank-react/public/profile-picture/";
 
 
     @Override
@@ -166,8 +167,8 @@ public class UserServiceImpl implements UserService {
 
             Files.copy(file.getInputStream(), filePath);
 
-            String fileUrl = uploadDir + newFileName; //this is for backend
-            // String fileUrl =  "profile-picture/" + newFileName;// this is the relative path from the frontend
+//            String fileUrl = uploadDir + newFileName; //this is for backend
+            String fileUrl =  "profile-picture/" + newFileName;// this is the relative path from the frontend
 
 
             user.setProfilePictureUrl(fileUrl);
